@@ -1,0 +1,8 @@
+export const navyColor = '#101f40'
+export const navyHoverColor = '#1b2f5c'
+export const blueColor = '#2b5fb0'
+export const mutedColor = '#51657d'
+export const whiteColor = '#fff'
+export const focusColor = '#3673cd'
+export const pageColor = '#f9fbfe'
+export const surfaceColor = '#f3f7fb'

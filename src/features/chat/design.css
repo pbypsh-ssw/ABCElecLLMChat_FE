@@ -1,0 +1,292 @@
+/* 챗봇 전용 색 */
+.bg-chatbot {
+  background-color: var(--chatbot-color);
+}
+
+.hover-chatbot {
+  transition: background-color var(--motion-duration-fast);
+}
+
+.hover-chatbot:hover {
+  background-color: var(--chatbot-hover-color);
+}
+
+.bg-chat-bubble {
+  background-color: var(--chat-bubble-color);
+}
+
+.bg-chat-input {
+  background-color: var(--chat-input-color);
+}
+
+.border-chat-outline {
+  border-color: var(--chat-outline-color);
+}
+
+.color-chat-error {
+  color: var(--chat-error-color);
+}
+
+.placeholder-muted::placeholder {
+  color: var(--color-muted);
+}
+
+.chat-widget__panel {
+  position: fixed;
+  right: var(--space-12);
+  bottom: var(--chat-panel-bottom);
+  z-index: var(--layer-floating);
+  display: flex;
+  width: var(--chat-panel-width);
+  height: min(
+    var(--chat-panel-height),
+    100svh - var(--chat-panel-viewport-gap)
+  );
+}
+
+.chat-widget__resize {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  height: var(--chat-resize-handle-height);
+  padding-top: var(--space-1);
+  box-sizing: border-box;
+  cursor: ns-resize;
+  user-select: none;
+  /* 터치로 끌 때 페이지 스크롤이 먼저 일어나지 않게 한다. */
+  touch-action: none;
+}
+
+.chat-widget__resize::before {
+  content: '';
+  width: var(--chat-resize-bar-width);
+  height: var(--chat-resize-bar-height);
+  background-color: var(--chat-resize-bar-color);
+  border-radius: var(--radius-pill);
+}
+
+.chat-widget__resize:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus);
+  outline-offset: calc(var(--focus-ring-width) * -1);
+}
+
+.chat-widget__panel .chat-panel {
+  width: 100%;
+}
+
+.chat-widget__launcher {
+  position: fixed;
+  right: var(--space-12);
+  bottom: var(--space-8);
+  z-index: var(--layer-floating);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--chat-launcher-height);
+  padding: 0 var(--space-7) 0 var(--space-3);
+}
+
+.chat-widget__icon {
+  width: var(--chat-launcher-icon-size);
+}
+
+.chat-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: var(--border-width-thin);
+  border-radius: var(--chat-panel-radius);
+}
+
+.chat-panel__header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--chat-panel-header-height);
+  padding: 0 var(--space-6) 0 var(--space-5);
+}
+
+.chat-panel__icon {
+  width: var(--chat-header-icon-size);
+}
+
+.chat-panel__title {
+  flex: 1;
+  margin: 0;
+}
+
+.chat-panel__close {
+  display: flex;
+  padding: var(--space-2);
+  margin-right: calc(var(--space-2) * -1);
+}
+
+.chat-panel__close svg {
+  width: var(--chat-close-icon-size);
+  height: var(--chat-close-icon-size);
+}
+
+.chat-panel__messages {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  min-height: 0;
+  padding: var(--space-6) var(--space-6) var(--space-4);
+  overflow-y: auto;
+}
+
+.chat-message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.chat-message--user {
+  align-items: flex-end;
+}
+
+.chat-message__name {
+  margin-bottom: var(--space-3);
+}
+
+.chat-message__bubble {
+  max-width: var(--chat-bubble-max-width);
+  box-sizing: border-box;
+  padding: var(--space-3) var(--space-4);
+  overflow-wrap: anywhere;
+  white-space: pre-line;
+  border-radius: var(--chat-bubble-radius);
+}
+
+/* inline-block이라 말풍선 높이가 글자 한 줄인 답변과 같게 유지된다. */
+.chat-typing__dot {
+  display: inline-block;
+  width: var(--chat-typing-dot-size);
+  height: var(--chat-typing-dot-size);
+  vertical-align: middle;
+  background-color: currentColor;
+  border-radius: var(--radius-circle);
+  animation: chat-typing-rise var(--chat-typing-duration) ease-in-out infinite
+    alternate;
+}
+
+.chat-typing__dot + .chat-typing__dot {
+  margin-inline-start: var(--space-1);
+  animation-delay: var(--chat-typing-stagger);
+}
+
+.chat-typing__dot + .chat-typing__dot + .chat-typing__dot {
+  animation-delay: calc(var(--chat-typing-stagger) * 2);
+}
+
+.chat-typing__label {
+  position: absolute;
+  width: var(--chat-typing-label-size);
+  height: var(--chat-typing-label-size);
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@keyframes chat-typing-rise {
+  to {
+    transform: translateY(var(--chat-typing-dot-rise));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-typing__dot {
+    animation: none;
+  }
+}
+
+.chat-notice {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.chat-notice__action {
+  padding: var(--space-1) var(--space-4);
+}
+
+.chat-input {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  min-height: var(--chat-input-height);
+  padding: 0 var(--space-2) 0 var(--space-5);
+  margin: var(--space-2) var(--space-6) var(--space-6);
+}
+
+.chat-input:focus-within {
+  outline-color: var(--color-focus);
+  outline-style: solid;
+  outline-width: var(--focus-ring-width);
+}
+
+.chat-input__field {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+}
+
+.chat-input__send {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--chat-send-size);
+  height: var(--chat-send-size);
+  margin-left: var(--space-2);
+  border-radius: var(--radius-circle);
+}
+
+.chat-input__send svg {
+  height: var(--chat-send-icon-size);
+}
+
+.chat-input__send:disabled {
+  cursor: default;
+}
+
+@media (max-width: 640px) {
+  .chat-widget__panel {
+    right: var(--space-3);
+    bottom: var(--chat-panel-bottom-narrow);
+    left: var(--space-3);
+    width: auto;
+    height: min(
+      var(--chat-panel-height),
+      100svh - var(--chat-panel-viewport-gap-narrow)
+    );
+  }
+
+  .chat-widget__launcher {
+    right: var(--space-4);
+    bottom: var(--space-4);
+    min-height: var(--chat-launcher-height-narrow);
+  }
+}
+
+.chat-page {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: var(--space-8) var(--space-4);
+}
+
+.chat-page .chat-panel {
+  width: min(var(--chat-page-panel-width), 100%);
+  height: var(--chat-page-panel-height);
+}

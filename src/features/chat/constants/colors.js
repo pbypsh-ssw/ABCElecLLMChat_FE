@@ -1,0 +1,7 @@
+export const chatbotColor = '#101f40'
+export const chatbotHoverColor = '#1b2f5c'
+export const chatBubbleColor = '#ebf3fb'
+export const chatInputColor = '#f0f4f9'
+export const chatOutlineColor = '#a4b6cb'
+export const chatErrorColor = '#b3261e'
+export const chatResizeBarColor = '#a4b6cb'

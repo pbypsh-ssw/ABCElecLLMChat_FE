@@ -1,0 +1,6 @@
+export const productGridMinColumn = '320px'
+export const productVisualHeight = '186px'
+export const productSpecLabelWidth = '255px'
+export const productSpecMinHeight = '49px'
+export const productImageMaxWidth = '70%'
+export const productImageMaxHeight = '90%'

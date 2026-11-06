@@ -1,0 +1,233 @@
+/* 글자: 크기, 줄 높이, 굵기만 담당한다. */
+.text-display {
+  font-size: var(--font-size-display);
+  line-height: var(--line-height-display);
+}
+
+.text-heading-lg {
+  font-size: var(--font-size-heading-lg);
+  line-height: var(--line-height-heading-lg);
+}
+
+.text-heading-md {
+  font-size: var(--font-size-heading-md);
+  line-height: var(--line-height-heading-md);
+}
+
+.text-heading-sm {
+  font-size: var(--font-size-heading-sm);
+}
+
+.text-lead {
+  font-size: var(--font-size-lead);
+}
+
+.text-action {
+  font-size: var(--font-size-action);
+}
+
+.text-value {
+  font-size: var(--font-size-value);
+}
+
+.text-body {
+  font-size: var(--font-size-body);
+}
+
+.text-body-compact {
+  font-size: var(--font-size-body-compact);
+  line-height: var(--line-height-body-compact);
+}
+
+.text-label {
+  font-size: var(--font-size-label);
+}
+
+.text-caption {
+  font-size: var(--font-size-caption);
+}
+
+.text-micro {
+  font-size: var(--font-size-micro);
+}
+
+.first-line-action::first-line {
+  font-size: var(--font-size-action);
+}
+
+.leading-loose {
+  line-height: var(--line-height-loose);
+}
+
+.font-bold {
+  font-weight: var(--font-weight-bold);
+}
+
+/* 색: 공통 색만 담당한다. 기능 전용 색은 각 기능의 design.css에 둔다. */
+.color-navy {
+  color: var(--color-navy);
+}
+
+.color-blue {
+  color: var(--color-blue);
+}
+
+.color-muted {
+  color: var(--color-muted);
+}
+
+.color-white {
+  color: var(--color-white);
+}
+
+.bg-white {
+  background-color: var(--color-white);
+}
+
+.bg-navy {
+  background-color: var(--color-navy);
+}
+
+.bg-page {
+  background-color: var(--color-page);
+}
+
+.bg-surface {
+  background-color: var(--color-surface);
+}
+
+.bg-transparent {
+  background-color: transparent;
+}
+
+.hover-navy {
+  transition: background-color var(--motion-duration-fast);
+}
+
+.hover-navy:hover {
+  background-color: var(--color-navy-hover);
+}
+
+/* 짙은 배경과 밝은 배경 모두에서 보이는 색으로 키보드 포커스를 표시한다. */
+a:focus-visible,
+button:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-focus);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* 구조: 반복되는 형태만 담당한다. 색과 글자는 넣지 않는다. */
+.o-button {
+  cursor: pointer;
+  border: 0;
+}
+
+.o-pill {
+  border-radius: var(--radius-pill);
+}
+
+.o-rounded {
+  border-radius: var(--radius-card);
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  flex-shrink: 0;
+  min-height: var(--header-height);
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  padding: 0 0 var(--space-1) var(--space-11);
+}
+
+.header__logo img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.header nav {
+  display: flex;
+}
+
+.header__nav-link {
+  display: flex;
+  align-items: center;
+  width: var(--header-nav-width);
+  padding-left: var(--space-9);
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+/* 메뉴가 화면 끝에 붙어 있어 바깥쪽 포커스 표시가 잘리므로 안쪽에 그린다. */
+.header__nav-link:focus-visible {
+  outline-offset: calc(var(--focus-ring-width) * -2);
+}
+
+/* Footer */
+.footer {
+  flex-shrink: 0;
+  min-height: var(--footer-min-height);
+  box-sizing: border-box;
+  padding: var(--space-6) var(--footer-launcher-clearance-x) var(--space-5)
+    var(--space-12);
+}
+
+.footer__title {
+  margin-bottom: var(--space-3);
+}
+
+@media (max-width: 1320px) {
+  .text-heading-md {
+    font-size: var(--font-size-heading-md-medium);
+  }
+}
+
+@media (max-width: 1100px) {
+  .text-display {
+    font-size: var(--font-size-display-medium);
+    line-height: var(--line-height-display-medium);
+  }
+
+  .text-lead {
+    font-size: var(--font-size-lead-medium);
+  }
+}
+
+@media (max-width: 640px) {
+  .text-heading-lg {
+    font-size: var(--font-size-heading-lg-narrow);
+    line-height: var(--line-height-heading-lg-narrow);
+  }
+
+  .text-action,
+  .first-line-action::first-line {
+    font-size: var(--font-size-action-narrow);
+  }
+
+  .text-body-compact {
+    font-size: var(--font-size-body-compact-narrow);
+    line-height: var(--line-height-body-compact-narrow);
+  }
+
+  .header__logo {
+    padding-left: var(--space-4);
+  }
+
+  .header__logo img {
+    width: var(--header-logo-width-narrow);
+  }
+
+  .header__nav-link {
+    width: auto;
+    padding-inline: var(--space-5);
+  }
+
+  .footer {
+    padding: var(--space-5) var(--space-4) var(--footer-launcher-clearance-y);
+  }
+}

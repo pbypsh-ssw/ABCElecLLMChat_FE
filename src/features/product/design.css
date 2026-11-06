@@ -1,0 +1,100 @@
+.products {
+  flex: 1;
+  padding: var(--space-12) var(--space-14) var(--space-8) var(--space-12);
+}
+
+.products__title {
+  margin: var(--space-3) 0 0;
+}
+
+.products__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-7);
+}
+
+@media (max-width: 1100px) {
+  .products {
+    padding-inline: var(--space-6);
+  }
+
+  .products__grid {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(var(--product-grid-min-column), 100%), 1fr)
+    );
+  }
+}
+
+@media (max-width: 640px) {
+  .products {
+    padding: var(--space-8) var(--space-4);
+  }
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.product-card__visual {
+  background-color: var(--product-tone);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--product-visual-height);
+}
+
+.product-card__visual img {
+  /* 사진의 흰 배경이 사각형으로 보이지 않도록 카드 배경색과 섞는다. */
+  mix-blend-mode: multiply;
+  display: block;
+  max-width: var(--product-image-max-width);
+  max-height: var(--product-image-max-height);
+}
+
+.product-card__order {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+}
+
+.product-card__body {
+  padding: var(--space-3) var(--space-5) var(--space-4);
+}
+
+.product-card__name {
+  margin: 0;
+}
+
+.product-card__english {
+  margin-top: var(--space-2);
+}
+
+.product-card__specs {
+  margin: var(--space-6) 0 0;
+}
+
+.product-card__spec {
+  display: grid;
+  grid-template-columns: var(--product-spec-label-width) minmax(0, 1fr);
+  align-items: center;
+  box-sizing: border-box;
+  min-height: var(--product-spec-min-height);
+  border-top-color: var(--product-line-color);
+  border-top-style: solid;
+  border-top-width: var(--border-width-thin);
+}
+
+.product-card__value {
+  margin: 0;
+}
+
+@media (max-width: 1320px) {
+  .product-card__spec {
+    grid-template-columns: 1fr auto;
+  }
+}
